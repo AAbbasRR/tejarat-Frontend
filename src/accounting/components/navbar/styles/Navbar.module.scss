@@ -1,0 +1,64 @@
+.navbar {
+    width: calc(100% - 240px) !important;
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms !important;
+    padding: .7rem !important;
+    z-index: 1100 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: auto !important;
+    background-color: rgb(255, 255, 255) !important;
+    box-shadow: rgb(100 / 12%, 116 / 12%, 139 / 12%) 0px 1px 4px !important;
+}
+
+.tollBar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: auto;
+}
+
+.menuItem {
+    padding: 0rem 0.75rem;
+    box-sizing: border-box;
+    border-left: 0.5px solid #95d0d3;
+    color: #56459d;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.menuItem:last-child {
+    border-left: 0px;
+}
+
+.menuItem:hover {
+    color: #95d0d3;
+    transition: 0.3s;
+}
+
+.menuToolItem {
+    padding: 0rem 0.75rem;
+    box-sizing: border-box;
+    color: #56459d;
+    display: flex;
+    align-items: center;
+    font-size: .9rem !important;
+}
+
+.iconItem {
+    color: #ffcc00;
+    margin-left: 5px;
+}
+
+/* responsive */
+@media screen and (max-width: 1100px) {
+    .navbar{
+        width: 100% !important;
+    }
+}

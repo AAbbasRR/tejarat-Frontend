@@ -1,0 +1,14 @@
+$primary: #000;
+$secondary: #fff;
+$text_color_white: #fefefe;
+$auth_primary: #00264d;
+$auth_hover_primary: #04396f;
+$auth_secondary: #395273;
+$loader_color: #00264d;
+
+$sidebar_dark_color: rgb(17, 24, 39);
+$sidebar_border_color: rgb(45, 55, 72);
+
+:export {
+    loader_color: $loader_color;
+}

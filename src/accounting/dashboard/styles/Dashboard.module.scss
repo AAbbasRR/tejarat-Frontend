@@ -1,0 +1,48 @@
+.main {
+    height: 100vh;
+    background-color: #f9fafc;
+}
+
+.container {
+    width: calc(100% - 280px) !important;
+    margin-top: 4rem !important;
+    margin-left: 0 !important;
+    float: left !important;
+    padding-right: 1.5rem;
+    margin-bottom: 5rem !important;
+}
+
+.cardHeader {
+    margin-right: 1rem;
+    margin-bottom: 0.5rem !important;
+}
+
+.formControll {
+    margin: 3rem 0 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.manyFieldBox{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.btnPage{
+    margin-top: 1rem !important;
+    margin-right: auto !important;
+    display: flex !important;
+}
+
+/* responsive */
+@media screen and (max-width: 1100px) {
+    .container{
+        width: 100% !important;
+    }
+}

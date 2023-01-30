@@ -1,0 +1,34 @@
+@import url("./Fonts.css");
+
+html {
+  scroll-behavior: smooth;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  direction: rtl !important;
+  font-family: IRANSans_Normal !important;
+}
+
+.App {
+  text-align: center;
+}
+
+.subtitle,
+.title {
+  font-family: IRANSans_Bold !important;
+}
+
+.link {
+  font-family: IRANSans_Normal !important;
+}
+
+.caption {
+  font-family: IRANSans_Medium !important;
+}
+
+.link {
+  text-decoration: none;
+}

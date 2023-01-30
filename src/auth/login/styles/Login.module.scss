@@ -1,0 +1,64 @@
+@import "../../../app/styles/Colors.scss";
+
+.main {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 100vh !important;
+    overflow: hidden !important;
+    position: relative !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background-image: url("../../../assets/img/login_bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: unset !important;
+    padding: unset !important;
+}
+
+.authBox {
+    width: 25rem;
+    min-height: 20rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 1.5rem;
+    position: relative;
+}
+
+.accountImage {
+    width: 5.5rem;
+    height: 5.5rem;
+    position: absolute;
+    top: -2.5rem;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $text_color_white;
+    background-color: $auth_primary;
+    padding: unset !important;
+}
+
+.content {
+    width: 100%;
+    padding: 4rem 2rem 1.5rem 2rem;
+}
+
+.formControll {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.submitBtn {
+    background-color: $auth_primary !important;
+    color: $text_color_white !important;
+    transition: 0.3s;
+}
+
+.submitBtn:hover {
+    background-color: $auth_hover_primary !important;
+    transition: .3s;
+}
