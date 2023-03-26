@@ -1,0 +1,10 @@
+.dialogCloseIcon{
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+.required label::after {
+    content: "*";
+    color: red !important;
+}

@@ -7,10 +7,13 @@ import Typography from '@mui/material/Typography';
 
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import HubIcon from '@mui/icons-material/Hub';
+import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 
 import PersonIcon from '@mui/icons-material/Person';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import FmdGoodIcon from '@mui/icons-material/FmdGood';
+import InventoryIcon from '@mui/icons-material/Inventory';
+import PeopleIcon from '@mui/icons-material/People';
 
 import { useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -25,13 +28,28 @@ const Sidebar = () => {
     const items = [
         {
             title: "داشبورد",
-            link: "/dashboard",
+            link: "/panel/dashboard",
             icon: (<DashboardIcon fontSize="small" />)
         },
         {
-            title: "انبار",
-            link: "/dashboard/store",
-            icon: (<FmdGoodIcon fontSize="small" />)
+            title: "مدیریت انبار",
+            link: "/panel/store",
+            icon: (<InventoryIcon fontSize="small" />)
+        },
+        {
+            title: "مدیریت کاربران",
+            link: "/panel/users",
+            icon: (<PeopleIcon fontSize="small" />)
+        },
+        {
+            title: "مدیریت psp",
+            link: "/panel/managePSP",
+            icon: (<HubIcon fontSize="small" />)
+        },
+        {
+            title: "مدیریت دستگاه",
+            link: "/panel/machines",
+            icon: (<PointOfSaleIcon fontSize="small" />)
         },
     ];
 

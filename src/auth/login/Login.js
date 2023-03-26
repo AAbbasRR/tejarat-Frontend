@@ -11,18 +11,13 @@ import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 import EmailIcon from '@mui/icons-material/Email';
 import PasswordIcon from '@mui/icons-material/Password';
 
-import rtlPlugin from 'stylis-plugin-rtl';
-import { prefixer } from 'stylis';
-import { CacheProvider } from '@emotion/react';
-import createCache from '@emotion/cache';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useSnackbar } from 'notistack';
 import * as yup from 'yup';
 
 import PageLoader from '../../components/loader/PageLoader';
+import RightToLeftLayout from '../../layouts/rightToLeft/RightToLeftLayout';
 
 import { loginAction } from '../../redux/actions/UserActions';
 
@@ -76,7 +71,7 @@ const Login = () => {
                 message: "ایمیل نباید خالی باشد"
             }).email({
                 field: "email",
-                message: "شماره موبایل معتبر نیست"
+                message: "آدرس ایمیل معتبر نیست"
             }),
             password: yup.string().required({
                 field: "password",
@@ -101,10 +96,9 @@ const Login = () => {
         try {
             let response = await CallApi(LoginAPI(state.loginData.email, state.loginData.password));
             reduxDispatch(loginAction(response));
-            history('/dashboard');
+            history('/panel/dashboard');
         } catch (error) {
             let response = error?.response?.data;
-            console.log(response)
             let errorMessage = { ...state.loginErrorData };
             if (response?.detail) {
                 enqueueSnackbar(response?.detail, { variant: "error" });
@@ -120,81 +114,69 @@ const Login = () => {
         };
     };
 
-    const rtltheme = createTheme({
-        direction: 'rtl',
-    });
-    const cacheRtl = createCache({
-        key: 'muirtl',
-        stylisPlugins: [prefixer, rtlPlugin],
-    });
-
     return (
         <>
             {state.isLoading && <PageLoader isLoading={true} />}
             <Container fixed className={classes.main}>
-                <CacheProvider value={cacheRtl}>
-                    <ThemeProvider theme={rtltheme}>
-                        <div className={classes.authBox}>
-                            <div className={classes.accountImage}>
-                                <PermIdentityOutlinedIcon sx={{ fontSize: 65 }} />
-                            </div>
-                            <div className={classes.content}>
-                                <form
-                                    className={classes.formControll}
-                                    onSubmit={submitFormHandler}
-                                >
-                                    <TextField
-                                        variant="filled"
-                                        id="email-input"
-                                        className={classes.input}
-                                        label="ایمیل"
-                                        fullWidth
-                                        InputProps={{
-                                            startAdornment: (
-                                                <InputAdornment position="start">
-                                                    <EmailIcon />
-                                                </InputAdornment>
-                                            ),
-                                        }}
-                                        onChange={(e) => formDataChangeHandle(e, 'email')}
-                                        value={state.loginData.email}
-                                        error={state.loginErrorData.email.error}
-                                        helperText={state.loginErrorData.email.message}
-                                    />
-                                    <TextField
-                                        variant="filled"
-                                        id="password-input"
-                                        className={classes.input}
-                                        label="رمزعبور"
-                                        type="password"
-                                        autoComplete="current-password"
-                                        fullWidth
-                                        InputProps={{
-                                            startAdornment: (
-                                                <InputAdornment position="start">
-                                                    <PasswordIcon />
-                                                </InputAdornment>
-                                            ),
-                                        }}
-                                        onChange={(e) => formDataChangeHandle(e, 'password')}
-                                        value={state.loginData.password}
-                                        error={state.loginErrorData.password.error}
-                                        helperText={state.loginErrorData.password.message}
-                                    />
-                                    <Button
-                                        type='submit'
-                                        variant="contained"
-                                        className={classes.submitBtn}
-                                        onSubmit={submitFormHandler}
-                                        disabled={state.isLoading}
-                                    >
-                                        ورود
-                                    </Button>
-                                </form>
-                            </div>
+                <RightToLeftLayout>
+                    <div className={classes.authBox}>
+                        <div className={classes.accountImage}>
+                            <PermIdentityOutlinedIcon sx={{ fontSize: 65 }} />
                         </div>
-                    </ThemeProvider>
-                </CacheProvider>
+                        <div className={classes.content}>
+                            <form
+                                className={classes.formControll}
+                                onSubmit={submitFormHandler}
+                            >
+                                <TextField
+                                    variant="filled"
+                                    id="email-input"
+                                    label="ایمیل"
+                                    fullWidth
+                                    InputProps={{
+                                        startAdornment: (
+                                            <InputAdornment position="start">
+                                                <EmailIcon />
+                                            </InputAdornment>
+                                        ),
+                                    }}
+                                    onChange={(e) => formDataChangeHandle(e, 'email')}
+                                    value={state.loginData.email}
+                                    error={state.loginErrorData.email.error}
+                                    helperText={state.loginErrorData.email.message}
+                                />
+                                <TextField
+                                    variant="filled"
+                                    id="password-input"
+                                    label="رمزعبور"
+                                    type="password"
+                                    autoComplete="current-password"
+                                    fullWidth
+                                    InputProps={{
+                                        startAdornment: (
+                                            <InputAdornment position="start">
+                                                <PasswordIcon />
+                                            </InputAdornment>
+                                        ),
+                                    }}
+                                    onChange={(e) => formDataChangeHandle(e, 'password')}
+                                    value={state.loginData.password}
+                                    error={state.loginErrorData.password.error}
+                                    helperText={state.loginErrorData.password.message}
+                                />
+                                <Button
+                                    type='submit'
+                                    variant="contained"
+                                    className={classes.submitBtn}
+                                    onSubmit={submitFormHandler}
+                                    disabled={state.isLoading}
+                                >
+                                    ورود
+                                </Button>
+                            </form>
+                        </div>
+                    </div>
+                </RightToLeftLayout>
             </Container>
         </>
     );

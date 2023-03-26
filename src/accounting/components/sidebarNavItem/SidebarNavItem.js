@@ -11,7 +11,7 @@ import { Link, useLocation } from 'react-router-dom';
 const SidebarNavItem = ({ title, icon, link, badge }) => {
     let router = useLocation();
 
-    let active = link === router.pathname;
+    let active = router.pathname.includes(link);
 
     return (
         <ListItem className={classes.fullWidth}>

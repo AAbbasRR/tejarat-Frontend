@@ -8,6 +8,10 @@ import AccountingLayout from '../../layouts/accounting/AccountingLayout';
 import Login from '../../auth/login/Login';
 
 import Dashboard from '../../accounting/dashboard/Dashboard';
+import Users from '../../accounting/users/Users';
+import UserDetail from '../../accounting/users/userDetail/UserDetail';
+import ManagePSP from '../../accounting/managePSP/ManagePSP';
+import Machines from '../../accounting/machines/Machines';
 
 const AppRouter = () => {
     const routes = [
@@ -24,8 +28,32 @@ const AppRouter = () => {
             exact: true
         },
         {
-            path: '/dashboard',
+            path: '/panel/dashboard',
             component: <Dashboard />,
+            protected: true,
+            exact: true
+        },
+        {
+            path: '/panel/users',
+            component: <Users />,
+            protected: true,
+            exact: true
+        },
+        {
+            path: '/panel/users/userDetail',
+            component: <UserDetail />,
+            protected: true,
+            exact: true
+        },
+        {
+            path: '/panel/managePSP',
+            component: <ManagePSP />,
+            protected: true,
+            exact: true
+        },
+        {
+            path: '/panel/machines',
+            component: <Machines />,
             protected: true,
             exact: true
         },

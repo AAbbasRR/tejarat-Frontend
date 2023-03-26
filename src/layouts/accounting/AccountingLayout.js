@@ -15,7 +15,7 @@ const AccountingLayout = ({ children }) => {
 
     return (
         <>
-            <PageLoader isLoading={reduxDashboardData.isLoading} />
+            <PageLoader isLoading={reduxDashboardData.loading} />
             <div className={classes.main}>
                 <Navbar />
                 <Sidebar />
